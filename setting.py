@@ -23,3 +23,5 @@ photo_list = ['img/crossfire.jpg', 'img/eve-online.jpg', 'img/fortnite.jpg', 'im
 CHANNEL_NAME = '@game_online_news'
 
 bot = telebot.TeleBot(BOT_TOKEN_1)
+
+time1 = "00:42:00"

@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 def eve_online():
     options = Options()
     options.binary_location = "C:/Program Files/Google/Chrome Beta/Application/chrome.exe"
-    driver = webdriver.Chrome(chrome_options=options, executable_path="D:/PyCharmProject/News_Games/chromedriver.exe")
+    driver = webdriver.Chrome(chrome_options=options, executable_path="D:/PyCharmProject/News_Games_2/chromedriver.exe")
 
     url = 'https://www.eveonline.com/ru/news/archive'
     driver.get(url)

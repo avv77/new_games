@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 def leagueoflegends():
     options = Options()
     options.binary_location = "C:/Program Files/Google/Chrome Beta/Application/chrome.exe"
-    driver = webdriver.Chrome(chrome_options=options, executable_path="D:/PyCharmProject/News_Games/chromedriver.exe")
+    driver = webdriver.Chrome(chrome_options=options, executable_path="D:/PyCharmProject/News_Games_2/chromedriver.exe")
 
     url = r'https://www.leagueoflegends.com/ru-ru/latest-news/'
 
