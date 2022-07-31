@@ -1,3 +1,7 @@
-import sqlite3
+from games.crossfire import crossfire
 
-conn = sqlite3.connect(r'D:\PyCharmProject\News_Games\db\news.db')
+
+function_list = [crossfire]
+
+# news_data_list = function_list[0]()
+# print(news_data_list)
