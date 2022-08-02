@@ -25,6 +25,7 @@ def bdo_online():
 
     data_now = datetime.now()
     data_now_format = data_now.strftime("%d/%m/%Y")
+    data_telegram = data_now.strftime("%d.%m.%Y")
 
     news_data_list_bdo_online = []
     for index in range(len(date_news)):
@@ -32,7 +33,7 @@ def bdo_online():
         if data_now_format == date:
             title = title_news[index]
             link = links[index]
-            news_text_all = '<b>Black Desert</b>' + '\n' + date + '\n' + f'<b>{title}</b>' + '\n' + link
+            news_text_all = '<b>Black Desert</b>' + '\n' + data_telegram + '\n' + f'<b>{title}</b>' + '\n' + link
             conn = sqlite3.connect(r'D:\PyCharmProject\News_Games\db\news.db')
             cur = conn.cursor()
             cur.execute(f"SELECT Text FROM bdo WHERE Date = '{date}'")

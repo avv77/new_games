@@ -35,6 +35,7 @@ def eve_online():
 
     data_now = datetime.now()
     data_now_format = data_now.strftime("%Y-%m-%d")
+    data_telegram = data_now.strftime("%d.%m.%Y")
 
     news_data_list_eve_online = []
     for index in range(len(date_news)):
@@ -42,7 +43,7 @@ def eve_online():
         if data_now_format == date:
             title = title_news[index]
             link = links[index]
-            news_text_all = '<b>Eve online</b>' + '\n' + date + '\n' + f'<b>{title}</b>' + '\n' + link
+            news_text_all = '<b>Eve online</b>' + '\n' + data_telegram + '\n' + f'<b>{title}</b>' + '\n' + link
             conn = sqlite3.connect(r'D:\PyCharmProject\News_Games\db\news.db')
             cur = conn.cursor()
             cur.execute(f"SELECT Text FROM eve_online WHERE Date = '{date}'")

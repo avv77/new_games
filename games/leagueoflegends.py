@@ -39,6 +39,7 @@ def leagueoflegends():
 
     data_now = datetime.now()
     data_now_format = data_now.strftime("%Y-%m-%d")
+    data_telegram = data_now.strftime("%d.%m.%Y")
 
     news_data_list_leagueoflegends = []
     for index in range(len(date_news)):
@@ -46,7 +47,7 @@ def leagueoflegends():
         if data_now_format == date:
             title = title_news[index]
             link = links[index]
-            new_text_all = '<b>LEAGUE OF LEGENDS</b>' + '\n' + date + '\n' + f'<b>{title}</b>' + '\n' + link
+            new_text_all = '<b>LEAGUE OF LEGENDS</b>' + '\n' + data_telegram + '\n' + f'<b>{title}</b>' + '\n' + link
             conn = sqlite3.connect(r'D:\PyCharmProject\News_Games\db\news.db')
             cur = conn.cursor()
             cur.execute(f"SELECT Text FROM leagueoflegends WHERE Date = '{date}'")

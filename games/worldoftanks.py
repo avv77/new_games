@@ -3,6 +3,7 @@ from selenium import webdriver
 import sqlite3
 from time import sleep
 from selenium.webdriver.chrome.options import Options
+from datetime import datetime
 
 
 def world_of_tanks():
@@ -22,13 +23,16 @@ def world_of_tanks():
     date_news = [date.text for date in soup.find_all('span', class_='preview_time')]
     title_news = [title.text for title in soup.find_all('h2', class_='preview_title')]
 
+    data_now = datetime.now()
+    data_telegram = data_now.strftime("%d.%m.%Y")
+
     news_data_list_worldoftanks = []
     for index in range(len(date_news)):
         date = date_news[index]
         if date == 'сегодня':
             title = title_news[index]
             link = links[index]
-            news_text_all = "<b>World of Tanks</b>" + '\n' + date + '\n' + f"<b>{title}</b>" + '\n' + link
+            news_text_all = "<b>World of Tanks</b>" + '\n' + data_telegram + '\n' + f"<b>{title}</b>" + '\n' + link
             conn = sqlite3.connect(r'D:\PyCharmProject\News_Games\db\news.db')
             cur = conn.cursor()
             cur.execute(f"SELECT Text FROM world_of_tanks WHERE Date = '{date}'")
