@@ -5,6 +5,8 @@ from time import sleep
 from selenium.webdriver.chrome.options import Options
 from datetime import datetime
 
+from setting import db
+
 
 def world_of_tanks():
     options = Options()
@@ -33,7 +35,7 @@ def world_of_tanks():
             title = title_news[index]
             link = links[index]
             news_text_all = "<b>World of Tanks</b>" + '\n' + data_telegram + '\n' + f"<b>{title}</b>" + '\n' + link
-            conn = sqlite3.connect(r'D:\PyCharmProject\News_Games\db\news.db')
+            conn = sqlite3.connect(db)
             cur = conn.cursor()
             cur.execute(f"SELECT Text FROM world_of_tanks WHERE Date = '{date}'")
             results = cur.fetchall()

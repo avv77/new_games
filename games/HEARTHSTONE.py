@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import sqlite3
 from time import sleep
 from selenium.webdriver.chrome.options import Options
+from setting import db
 
 
 def hearthstone():
@@ -47,7 +48,7 @@ def hearthstone():
             link = links[index]
             news = news_all[index]
             news_text_all = '<b>Hearthstone</b>' + '\n' + date + '\n' + f'<b>{title}</b>' + '\n' + news + '\n' + link
-            conn = sqlite3.connect(r'D:\PyCharmProject\News_Games\db\news.db')
+            conn = sqlite3.connect(db)
             cur = conn.cursor()
             cur.execute(f"SELECT Text FROM hearthstone WHERE Date = '{date}'")
             results = cur.fetchall()

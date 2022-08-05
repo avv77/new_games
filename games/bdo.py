@@ -2,6 +2,7 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 import requests
 import sqlite3
+from setting import db
 
 
 def bdo_online():
@@ -34,7 +35,7 @@ def bdo_online():
             title = title_news[index]
             link = links[index]
             news_text_all = '<b>Black Desert</b>' + '\n' + data_telegram + '\n' + f'<b>{title}</b>' + '\n' + link
-            conn = sqlite3.connect(r'D:\PyCharmProject\News_Games\db\news.db')
+            conn = sqlite3.connect(db)
             cur = conn.cursor()
             cur.execute(f"SELECT Text FROM bdo WHERE Date = '{date}'")
             results = cur.fetchall()

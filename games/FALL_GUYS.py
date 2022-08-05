@@ -2,6 +2,7 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 import requests
 import sqlite3
+from setting import db
 
 
 def fall_guys():
@@ -64,7 +65,7 @@ def fall_guys():
             title = title_news[index]
             link = links[index]
             news_text_all = '<b>Fall Guys</b>' + '\n' + date + '\n' + f'<b>{title}</b>' + '\n' + link
-            conn = sqlite3.connect(r'D:\PyCharmProject\News_Games\db\news.db')
+            conn = sqlite3.connect(db)
             cur = conn.cursor()
             cur.execute(f"SELECT Text FROM fall_guys WHERE Date = '{date}'")
             results = cur.fetchall()

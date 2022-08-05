@@ -4,6 +4,7 @@ from datetime import datetime
 import sqlite3
 from time import sleep
 from selenium.webdriver.chrome.options import Options
+from setting import db
 
 
 def eve_online():
@@ -44,7 +45,7 @@ def eve_online():
             title = title_news[index]
             link = links[index]
             news_text_all = '<b>Eve online</b>' + '\n' + data_telegram + '\n' + f'<b>{title}</b>' + '\n' + link
-            conn = sqlite3.connect(r'D:\PyCharmProject\News_Games\db\news.db')
+            conn = sqlite3.connect(db)
             cur = conn.cursor()
             cur.execute(f"SELECT Text FROM eve_online WHERE Date = '{date}'")
             results = cur.fetchall()

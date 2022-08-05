@@ -4,6 +4,7 @@ import sqlite3
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from setting import db
 
 
 def crossfire():
@@ -41,7 +42,7 @@ def crossfire():
             news = news_all[index]
             link = links[index]
             new_text_all = "<b>Cross Fire</b>" + '\n' + date + '\n' + f"<b>{title}</b>" + '\n' + news + '\n' + link
-            conn = sqlite3.connect(r'D:\PyCharmProject\News_Games\db\news.db')
+            conn = sqlite3.connect(db)
             cur = conn.cursor()
             cur.execute(f"SELECT Text FROM crossfire WHERE Date = '{date}'")
             results = cur.fetchall()

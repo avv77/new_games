@@ -11,9 +11,10 @@ from games.leagueoflegends import leagueoflegends
 from games.worldoftanks import world_of_tanks
 from setting import CHANNEL_NAME
 import schedule
-from setting import BOT_TOKEN_1
 import telebot
 import logging
+import sqlite3
+from token import BOT_TOKEN_1
 
 bot = telebot.TeleBot(BOT_TOKEN_1)
 
@@ -47,3 +48,13 @@ def run():
             send_news(news_data_list, photo_list[index])
         except Exception as exc:
             print(f'Ошибка {exc} в формуле {function_list[index]}')
+
+
+def table_clear():
+    conn = sqlite3.connect(r'D:\PyCharmProject\News_Games\db\news.db')
+    cur = conn.cursor()
+    table_list = ['bdo', 'crossfire', 'dota2', 'eve_online', 'fall_guys', 'fortnite', 'hearthstone', 'leagueoflegends',
+                  'rainbow', 'world_of_tanks']
+    for table in table_list:
+        cur.execute(f"DELETE FROM {table}")
+        conn.commit()

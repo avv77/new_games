@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import sqlite3
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from setting import db
 
 
 def dota2():
@@ -64,7 +65,7 @@ def dota2():
             link = links[index]
             news = news_all[index]
             new_text_all = '<b>Dota2</b>' + '\n' + date + '\n' + f'<b>{title}</b>' + '\n' + news + '\n' + link
-            conn = sqlite3.connect(r'D:\PyCharmProject\News_Games\db\news.db')
+            conn = sqlite3.connect(db)
             cur = conn.cursor()
             cur.execute(f"SELECT Text FROM dota2 WHERE Date = '{date}'")
             results = cur.fetchall()
