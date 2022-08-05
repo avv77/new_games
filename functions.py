@@ -9,7 +9,7 @@ from games.eve_online import eve_online
 from games.fortnite import fortnite
 from games.leagueoflegends import leagueoflegends
 from games.worldoftanks import world_of_tanks
-from setting import CHANNEL_NAME
+from setting import CHANNEL_NAME, db
 import schedule
 import telebot
 import logging
@@ -24,9 +24,9 @@ telebot.logger.setLevel(logging.DEBUG)
 function_list = [crossfire, eve_online, fortnite, dota2, leagueoflegends, rainbow, hearthstone,
                  fall_guys, bdo_online, world_of_tanks]
 
-photo_list = ['img/crossfire.jpg', 'img/eve-online.jpg', 'img/fortnite.jpg', 'img/dota2.jpg',
-              'img/league-of-legends.jpg', 'img/rainbow.jpg', 'img/hearthstone.jpg', 'img/Fallguys.jpg',
-              'img/bdo_online.jpg', 'img/wot.jpg']
+photo_list = ['app/img/crossfire.jpg', 'app/img/eve-online.jpg', 'app/img/fortnite.jpg', 'app/img/dota2.jpg',
+              'app/img/league-of-legends.jpg', 'app/img/rainbow.jpg', 'app/img/hearthstone.jpg', 'app/img/Fallguys.jpg',
+              'app/img/bdo_online.jpg', 'app/img/wot.jpg']
 
 
 def schedule_checker():
@@ -51,7 +51,7 @@ def run():
 
 
 def table_clear():
-    conn = sqlite3.connect(r'D:\PyCharmProject\News_Games\db\news.db')
+    conn = sqlite3.connect(db)
     cur = conn.cursor()
     table_list = ['bdo', 'crossfire', 'dota2', 'eve_online', 'fall_guys', 'fortnite', 'hearthstone', 'leagueoflegends',
                   'rainbow', 'world_of_tanks']

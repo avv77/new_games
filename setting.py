@@ -10,4 +10,4 @@ time7 = "20:00:00"
 time8 = "23:00:00"
 time9 = "23:35:00"
 
-db = r'D:\PyCharmProject\News_Games_host\db\news.db'
+db = r'app\db\news.db'
