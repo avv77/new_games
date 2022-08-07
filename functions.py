@@ -16,7 +16,7 @@ import telebot
 import logging
 import sqlite3
 
-BOT_TOKEN_1 = os.environ.get('BOT_TOKEN_1 ')
+BOT_TOKEN_1 = os.environ.get('BOT_TOKEN_1')
 
 bot = telebot.TeleBot(BOT_TOKEN_1)
 
