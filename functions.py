@@ -15,6 +15,7 @@ import schedule
 import telebot
 import logging
 import sqlite3
+from datetime import datetime
 
 BOT_TOKEN_1 = os.environ.get('BOT_TOKEN_1')
 
@@ -49,7 +50,9 @@ def run():
             news_data_list = function_list[index]()
             send_news(news_data_list, photo_list[index])
         except Exception as exc:
-            print(f'Ошибка {exc} в формуле {function_list[index]}')
+            data_now = datetime.now()
+            data_now_format = data_now.strftime("%d.%m.%Y")
+            print(f'Время {data_now_format}. Ошибка {exc} в формуле {function_list[index]}')
 
 
 def table_clear():

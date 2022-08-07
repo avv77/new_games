@@ -5,13 +5,16 @@ from time import sleep
 from selenium.webdriver.chrome.options import Options
 from datetime import datetime
 
-from setting import db
+from setting import db, binary_location_file, webdriver_file
 
 
 def world_of_tanks():
     options = Options()
-    options.binary_location = "C:/Program Files/Google/Chrome Beta/Application/chrome.exe"
-    driver = webdriver.Chrome(chrome_options=options, executable_path="D:/PyCharmProject/News_Games_2/chromedriver.exe")
+    options.add_argument("--headless")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--no-sandbox")
+    options.binary_location = binary_location_file
+    driver = webdriver.Chrome(chrome_options=options, executable_path=webdriver_file)
 
     url = 'https://worldoftanks.ru/ru/news/'
     driver.get(url)

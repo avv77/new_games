@@ -1,28 +1,20 @@
 from datetime import datetime
 from bs4 import BeautifulSoup
 import sqlite3
-from time import sleep
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from setting import db
+import requests
 
 
 def crossfire():
-    options = Options()
-    options.binary_location = "C:/Program Files/Google/Chrome Beta/Application/chrome.exe"
-    driver = webdriver.Chrome(chrome_options=options, executable_path="D:/PyCharmProject/News_Games_2/chromedriver.exe")
 
     url = r'https://cfire.ru/news/'
 
-    driver.get(url)
-    sleep(10)
-    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
 
     quotes = soup.find_all(class_='news_title')
     quotes1 = soup.find_all(class_='preview')
     quotes2 = soup.find_all(class_='date')
-
-    driver.quit()
 
     links = ['https://cfire.ru' + link['href'] for link in soup.find_all(class_='news_title', href=True)]
     title_news = [title.text for title in quotes]

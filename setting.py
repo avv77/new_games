@@ -1,5 +1,6 @@
 CHANNEL_NAME = '@game_online_news'
 
+time0 = "07:30:00"
 time1 = "08:00:00"
 time2 = "10:00:00"
 time3 = "12:00:00"
@@ -11,3 +12,6 @@ time8 = "23:00:00"
 time9 = "23:35:00"
 
 db = r'app\db\news.db'
+
+binary_location_file = r'app\crome\chrome.exe'
+webdriver_file = r'app\chromedriver.exe'
