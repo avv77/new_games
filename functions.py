@@ -51,8 +51,7 @@ def run():
             send_news(news_data_list, photo_list[index])
         except Exception as exc:
             data_now = datetime.now()
-            data_now_format = data_now.strftime("%d.%m.%Y")
-            print(f'Время {data_now_format}. Ошибка {exc} в формуле {function_list[index]}')
+            print(f'Время {data_now}. Ошибка {exc} в формуле {function_list[index]}')
 
 
 def table_clear():
