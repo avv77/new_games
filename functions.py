@@ -1,3 +1,4 @@
+import os
 from time import sleep
 from games.FALL_GUYS import fall_guys
 from games.HEARTHSTONE import hearthstone
@@ -14,7 +15,8 @@ import schedule
 import telebot
 import logging
 import sqlite3
-from token import BOT_TOKEN_1
+
+BOT_TOKEN_1 = os.environ.get('BOT_TOKEN_1 ')
 
 bot = telebot.TeleBot(BOT_TOKEN_1)
 
