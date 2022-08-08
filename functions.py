@@ -27,9 +27,10 @@ telebot.logger.setLevel(logging.DEBUG)
 function_list = [crossfire, eve_online, fortnite, dota2, leagueoflegends, rainbow, hearthstone,
                  fall_guys, bdo_online, world_of_tanks]
 
-photo_list = ['app/img/crossfire.jpg', 'app/img/eve-online.jpg', 'app/img/fortnite.jpg', 'app/img/dota2.jpg',
-              'app/img/league-of-legends.jpg', 'app/img/rainbow.jpg', 'app/img/hearthstone.jpg', 'app/img/Fallguys.jpg',
-              'app/img/bdo_online.jpg', 'app/img/wot.jpg']
+photo_list = ['/app/img/crossfire.jpg', '/app/img/eve-online.jpg', '/app/img/fortnite.jpg', '/app/img/dota2.jpg',
+              '/app/img/league-of-legends.jpg', '/app/img/rainbow.jpg', '/app/img/hearthstone.jpg',
+              '/app/img/Fallguys.jpg',
+              '/app/img/bdo_online.jpg', '/app/img/wot.jpg']
 
 
 def schedule_checker():
