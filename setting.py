@@ -12,6 +12,3 @@ time8 = "23:00:00"
 time9 = "23:35:00"
 
 db = r'/app/db/news.db'
-
-binary_location_file = r'/app/crome/chrome.exe'
-webdriver_file = r'/app/chromedriver.exe'

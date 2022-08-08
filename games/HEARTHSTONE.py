@@ -3,17 +3,17 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import sqlite3
 from time import sleep
-from selenium.webdriver.chrome.options import Options
-from setting import db, webdriver_file, binary_location_file
+from setting import db
+import os
 
 
 def hearthstone():
-    options = Options()
-    options.add_argument("--headless")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--no-sandbox")
-    options.binary_location = binary_location_file
-    driver = webdriver.Chrome(chrome_options=options, executable_path=webdriver_file)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
     url = r'https://playhearthstone.com/ru-ru/news#articles'
 

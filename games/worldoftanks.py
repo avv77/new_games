@@ -2,19 +2,18 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 import sqlite3
 from time import sleep
-from selenium.webdriver.chrome.options import Options
 from datetime import datetime
-
-from setting import db, binary_location_file, webdriver_file
+import os
+from setting import db
 
 
 def world_of_tanks():
-    options = Options()
-    options.add_argument("--headless")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--no-sandbox")
-    options.binary_location = binary_location_file
-    driver = webdriver.Chrome(chrome_options=options, executable_path=webdriver_file)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
     url = 'https://worldoftanks.ru/ru/news/'
     driver.get(url)
