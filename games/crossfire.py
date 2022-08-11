@@ -1,11 +1,17 @@
 from datetime import datetime
 from bs4 import BeautifulSoup
 import sqlite3
-from setting import db
+from setting import db, log1
 import requests
+import logging.config
+
+
+logging.config.dictConfig(log1)
+log = logging.getLogger('fuction')
 
 
 def crossfire():
+    log.debug(f'Функция "crossfire" начала работу')
 
     url = r'https://cfire.ru/news/'
 
@@ -52,5 +58,5 @@ def crossfire():
                 news_data_list_crossfire.append(new_text_all)
                 cur.execute(f"INSERT INTO 'crossfire' VALUES('{date}','{new_text_all}')")
                 conn.commit()
-
+    log.debug(f'Функция "crossfire" закончила работу')
     return news_data_list_crossfire

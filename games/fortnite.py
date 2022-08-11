@@ -3,11 +3,17 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import sqlite3
 from time import sleep
-from setting import db
+from setting import db, log1
 import os
+import logging.config
+
+
+logging.config.dictConfig(log1)
+log = logging.getLogger('fuction')
 
 
 def fortnite():
+    log.debug(f'Функция "fortnite" начала работу')
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--headless")
@@ -83,5 +89,5 @@ def fortnite():
                 news_data_list_fortnite.append(new_text_all)
                 cur.execute(f"INSERT INTO 'fortnite' VALUES('{date}','{new_text_all}')")
                 conn.commit()
-
+    log.debug(f'Функция "fortnite" закончила работу')
     return news_data_list_fortnite
