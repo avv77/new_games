@@ -2,16 +2,10 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 import requests
 import sqlite3
-from setting import db, log1
-import logging.config
-
-
-logging.config.dictConfig(log1)
-log = logging.getLogger('fuction')
+from setting import db
 
 
 def bdo_online():
-    log.debug(f'Функция "bdo_online" начала работу')
     url = 'https://www.ru.playblackdesert.com/News/Notice'
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
@@ -59,5 +53,4 @@ def bdo_online():
                 news_data_list_bdo_online.append(news_text_all)
                 cur.execute(f"INSERT INTO 'bdo' VALUES('{date}','{news_text_all}')")
                 conn.commit()
-    log.debug(f'Функция "bdo_online" закончила работу')
     return news_data_list_bdo_online

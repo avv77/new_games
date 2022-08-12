@@ -3,17 +3,11 @@ from selenium import webdriver
 from datetime import datetime
 import sqlite3
 from time import sleep
-from setting import db, log1
+from setting import db
 import os
-import logging.config
-
-
-logging.config.dictConfig(log1)
-log = logging.getLogger('fuction')
 
 
 def eve_online():
-    log.debug(f'Функция "eve_online" начала работу')
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--headless")
@@ -72,5 +66,4 @@ def eve_online():
                 news_data_list_eve_online.append(news_text_all)
                 cur.execute(f"INSERT INTO 'eve_online' VALUES('{date}','{news_text_all}')")
                 conn.commit()
-    log.debug(f'Функция "eve_online" закончила работу')
     return news_data_list_eve_online

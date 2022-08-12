@@ -3,17 +3,11 @@ from time import sleep
 from bs4 import BeautifulSoup
 import sqlite3
 from selenium import webdriver
-from setting import db, log1
+from setting import db
 import os
-import logging.config
-
-
-logging.config.dictConfig(log1)
-log = logging.getLogger('fuction')
 
 
 def dota2():
-    log.debug(f'Функция "dota2" начала работу')
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--headless")
@@ -93,5 +87,4 @@ def dota2():
                 news_data_list_dota2.append(new_text_all)
                 cur.execute(f"INSERT INTO 'dota2' VALUES('{date}','{new_text_all}')")
                 conn.commit()
-    log.debug(f'Функция "dota2" закончила работу')
     return news_data_list_dota2

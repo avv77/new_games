@@ -4,16 +4,10 @@ import sqlite3
 from time import sleep
 from datetime import datetime
 import os
-from setting import db, log1
-import logging.config
-
-
-logging.config.dictConfig(log1)
-log = logging.getLogger('fuction')
+from setting import db
 
 
 def world_of_tanks():
-    log.debug(f'Функция "world_of_tanks" начала работу')
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--headless")
@@ -61,5 +55,4 @@ def world_of_tanks():
                 news_data_list_worldoftanks.append(news_text_all)
                 cur.execute(f"INSERT INTO 'world_of_tanks' VALUES('{date}','{news_text_all}')")
                 conn.commit()
-    log.debug(f'Функция "world_of_tanks" закончила работу')
     return news_data_list_worldoftanks

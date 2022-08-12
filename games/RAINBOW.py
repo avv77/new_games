@@ -3,17 +3,11 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import sqlite3
 from time import sleep
-from setting import db, log1
+from setting import db
 import os
-import logging.config
-
-
-logging.config.dictConfig(log1)
-log = logging.getLogger('fuction')
 
 
 def rainbow():
-    log.debug(f'Функция "rainbow" начала работу')
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--headless")
@@ -82,5 +76,4 @@ def rainbow():
                 news_data_list_rainbow.append(news_text_all)
                 cur.execute(f"INSERT INTO 'rainbow' VALUES('{date}','{news_text_all}')")
                 conn.commit()
-    log.debug(f'Функция "rainbow" закончила работу')
     return news_data_list_rainbow

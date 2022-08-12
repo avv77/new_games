@@ -2,16 +2,10 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 import requests
 import sqlite3
-from setting import db, log1
-import logging.config
-
-
-logging.config.dictConfig(log1)
-log = logging.getLogger('fuction')
+from setting import db
 
 
 def fall_guys():
-    log.debug(f'Функция "fall_guys" начала работу')
     url = r'https://www.fallguys.com/ru/news'
 
     response = requests.get(url)
@@ -89,5 +83,4 @@ def fall_guys():
                 news_data_list_fall_guys.append(news_text_all)
                 cur.execute(f"INSERT INTO 'fall_guys' VALUES('{date}','{news_text_all}')")
                 conn.commit()
-    log.debug(f'Функция "fall_guys" закончила работу')
     return news_data_list_fall_guys
