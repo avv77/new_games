@@ -71,3 +71,4 @@ def table_clear():
     for table in table_list:
         cur.execute(f"DELETE FROM {table}")
         conn.commit()
+    log.info(f'База данных очищена')
