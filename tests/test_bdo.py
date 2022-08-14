@@ -29,3 +29,7 @@ class Bdo(unittest.TestCase):
         data_telegram = '13.08.2022'
         news_test = news_text_all_bdo(index, title_news, links, data_telegram)
         self.assertEqual(news_test, '<b>Black Desert</b>\n13.08.2022\n<b>Новость</b>\nhttps://1.ru')
+
+
+if __name__ == '__main__':
+    unittest.main()
