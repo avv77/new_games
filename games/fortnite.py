@@ -24,6 +24,7 @@ def fortnite():
     links = ['https://www.epicgames.com' + link['href'] for link in soup.select('a[class^="gridItem"]', href=True)]
     quotes_title = [title['title'] for title in soup.select('a[class^="gridItem"]', title=True)]
     date_text = [date.text for date in soup.find_all(class_='date')]
+
     driver.quit()
 
     month_dict = {'янв.': '01',

@@ -25,6 +25,7 @@ def leagueoflegends():
     date_news_noformat = [date['datetime'] for date in soup.find_all('time', datetime=True)]
     title_news = [title.text for title in soup.find_all('h2')]
     links_noformat = [link['href'] for link in soup.find_all(class_='style__Wrapper-sc-1h41bzo-0', href=True)]
+
     driver.quit()
 
     links = []

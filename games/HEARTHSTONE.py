@@ -30,6 +30,7 @@ def hearthstone():
                                                            'ArticleSummary')]
 
     driver.quit()
+
     links = []
     for link in links_no_format:
         if link[:5] != 'https':

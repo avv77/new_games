@@ -21,6 +21,8 @@ def world_of_tanks():
 
     soup = BeautifulSoup(driver.page_source, 'html.parser')
 
+    driver.quit()
+
     links_no_format = ['https://worldoftanks.ru' + link['href'] for link in soup.find_all(class_='preview_link',
                                                                                           href=True)]
     links = links_no_format[::2]

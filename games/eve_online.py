@@ -29,6 +29,8 @@ def eve_online():
         tlist = element.find('a')
         list_links.append(tlist)
 
+    driver.quit()
+
     links = ['https://www.eveonline.com' + link['href'] for link in list_links]
     title_news = [title.text for title in list_links]
     date_news_no_format = [date.text for date in soup.find_all('span', class_='DateAndAuthor_author_date__3y2EY')]
