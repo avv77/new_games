@@ -3,7 +3,7 @@ from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 
-from games.crossfire import crossfire_soup, crossfire_links_date_title, crossfire_now_data, news_text_all_crossfire
+from games_online.crossfire import crossfire_soup, crossfire_links_date_title, crossfire_now_data, news_text_all_crossfire
 
 
 class Crossfire(unittest.TestCase):

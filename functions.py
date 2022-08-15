@@ -1,15 +1,15 @@
 import os
 from time import sleep
-from games.FALL_GUYS import fall_guys
-from games.HEARTHSTONE import hearthstone
-from games.RAINBOW import rainbow
-from games.bdo import bdo_online
-from games.crossfire import crossfire
-from games.dota2 import dota2
-from games.eve_online import eve_online
-from games.fortnite import fortnite
-from games.leagueoflegends import leagueoflegends
-from games.worldoftanks import world_of_tanks
+from games_online.FALL_GUYS import fall_guys
+from games_online.HEARTHSTONE import hearthstone
+from games_online.RAINBOW import rainbow
+from games_online.bdo import bdo_online
+from games_online.crossfire import crossfire
+from games_online.dota2 import dota2
+from games_online.eve_online import eve_online
+from games_online.fortnite import fortnite
+from games_online.leagueoflegends import leagueoflegends
+from games_online.worldoftanks import world_of_tanks
 from setting import CHANNEL_NAME, db, log1
 import schedule
 import telebot

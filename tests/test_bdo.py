@@ -1,6 +1,6 @@
 import unittest
 from datetime import datetime
-from games.bdo import bdo_soup, bdo_links_date_title, bdo_now_data, news_text_all_bdo
+from games_online.bdo import bdo_links_date_title, bdo_now_data, news_text_all_bdo, bdo_soup
 import requests
 from bs4 import BeautifulSoup
 
