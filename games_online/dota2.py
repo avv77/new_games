@@ -3,8 +3,12 @@ from time import sleep
 from bs4 import BeautifulSoup
 import sqlite3
 from selenium import webdriver
-from setting import db
+from setting import db, log1
 import os
+import logging.config
+
+logging.config.dictConfig(log1)
+log = logging.getLogger('fuction')
 
 
 def dota2():
@@ -87,4 +91,5 @@ def dota2():
                 news_data_list_dota2.append(new_text_all)
                 cur.execute(f"INSERT INTO 'dota2' VALUES('{date}','{new_text_all}')")
                 conn.commit()
+    log.info(f'{news_data_list_dota2}')
     return news_data_list_dota2
