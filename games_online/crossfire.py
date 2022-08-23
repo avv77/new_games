@@ -61,11 +61,12 @@ def data_list_crossfire(date_news, data_now_format, title_news, news_all, links)
                         news_text_list.append(j)
                 if new_text_all not in news_text_list:
                     news_data_list_crossfire.append(new_text_all)
-                    cur.execute(f"INSERT INTO 'crossfire' VALUES('{date}','{new_text_all}')")
+                    cur.execute("INSERT INTO {tn} (Date, Text) VALUES(?, ?)".format(tn='crossfire'), (date,
+                                                                                                      new_text_all))
                     conn.commit()
             else:
                 news_data_list_crossfire.append(new_text_all)
-                cur.execute(f"INSERT INTO 'crossfire' VALUES('{date}','{new_text_all}')")
+                cur.execute("INSERT INTO {tn} (Date, Text) VALUES(?, ?)".format(tn='crossfire'), (date, new_text_all))
                 conn.commit()
     return news_data_list_crossfire
 

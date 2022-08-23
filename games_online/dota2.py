@@ -85,11 +85,11 @@ def dota2():
                         news_text_list.append(j)
                 if new_text_all not in news_text_list:
                     news_data_list_dota2.append(new_text_all)
-                    cur.execute(f"INSERT INTO 'dota2' VALUES('{date}','{new_text_all}')")
+                    cur.execute("INSERT INTO {tn} (Date, Text) VALUES(?, ?)".format(tn='dota2'), (date, new_text_all))
                     conn.commit()
             else:
                 news_data_list_dota2.append(new_text_all)
-                cur.execute(f"INSERT INTO 'dota2' VALUES('{date}','{new_text_all}')")
+                cur.execute("INSERT INTO {tn} (Date, Text) VALUES(?, ?)".format(tn='dota2'), (date, new_text_all))
                 conn.commit()
     log.info(f'{news_data_list_dota2}')
     return news_data_list_dota2

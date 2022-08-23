@@ -64,11 +64,11 @@ def data_list_bdo_online(date_news, data_now_format, title_news, links, data_tel
                         news_text_list.append(j)
                 if news_text_all not in news_text_list:
                     news_data_list_bdo_online.append(news_text_all)
-                    cur.execute(f"INSERT INTO 'bdo' VALUES('{date}','{news_text_all}')")
+                    cur.execute("INSERT INTO {tn} (Date, Text) VALUES(?, ?)".format(tn='bdo'), (date, news_text_all))
                     conn.commit()
             else:
                 news_data_list_bdo_online.append(news_text_all)
-                cur.execute(f"INSERT INTO 'bdo' VALUES('{date}','{news_text_all}')")
+                cur.execute("INSERT INTO {tn} (Date, Text) VALUES(?, ?)".format(tn='bdo'), (date, news_text_all))
                 conn.commit()
     return news_data_list_bdo_online
 

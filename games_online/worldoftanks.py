@@ -51,10 +51,12 @@ def world_of_tanks():
                         news_text_list.append(j)
                 if news_text_all not in news_text_list:
                     news_data_list_worldoftanks.append(news_text_all)
-                    cur.execute(f"INSERT INTO 'world_of_tanks' VALUES('{date}','{news_text_all}')")
+                    cur.execute("INSERT INTO {tn} (Date, Text) VALUES(?, ?)".format(tn='world_of_tanks'),
+                                (date, news_text_all))
                     conn.commit()
             else:
                 news_data_list_worldoftanks.append(news_text_all)
-                cur.execute(f"INSERT INTO 'world_of_tanks' VALUES('{date}','{news_text_all}')")
+                cur.execute("INSERT INTO {tn} (Date, Text) VALUES(?, ?)".format(tn='world_of_tanks'),
+                            (date, news_text_all))
                 conn.commit()
     return news_data_list_worldoftanks

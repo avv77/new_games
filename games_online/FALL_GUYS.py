@@ -77,10 +77,11 @@ def fall_guys():
                         news_text_list.append(j)
                 if news_text_all not in news_text_list:
                     news_data_list_fall_guys.append(news_text_all)
-                    cur.execute(f"INSERT INTO 'fall_guys' VALUES('{date}','{news_text_all}')")
+                    cur.execute("INSERT INTO {tn} (Date, Text) VALUES(?, ?)".format(tn='fall_guys'),
+                                (date, news_text_all))
                     conn.commit()
             else:
                 news_data_list_fall_guys.append(news_text_all)
-                cur.execute(f"INSERT INTO 'fall_guys' VALUES('{date}','{news_text_all}')")
+                cur.execute("INSERT INTO {tn} (Date, Text) VALUES(?, ?)".format(tn='fall_guys'), (date, news_text_all))
                 conn.commit()
     return news_data_list_fall_guys

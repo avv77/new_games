@@ -78,10 +78,11 @@ def fortnite():
                         news_text_list.append(j)
                 if new_text_all not in news_text_list:
                     news_data_list_fortnite.append(new_text_all)
-                    cur.execute(f"INSERT INTO 'fortnite' VALUES('{date}','{new_text_all}')")
+                    cur.execute("INSERT INTO {tn} (Date, Text) VALUES(?, ?)".format(tn='fortnite'), (date,
+                                                                                                     new_text_all))
                     conn.commit()
             else:
                 news_data_list_fortnite.append(new_text_all)
-                cur.execute(f"INSERT INTO 'fortnite' VALUES('{date}','{new_text_all}')")
+                cur.execute("INSERT INTO {tn} (Date, Text) VALUES(?, ?)".format(tn='fortnite'), (date, new_text_all))
                 conn.commit()
     return news_data_list_fortnite

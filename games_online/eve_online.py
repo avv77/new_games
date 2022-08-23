@@ -62,10 +62,11 @@ def eve_online():
                         news_text_list.append(j)
                 if news_text_all not in news_text_list:
                     news_data_list_eve_online.append(news_text_all)
-                    cur.execute(f"INSERT INTO 'eve_online' VALUES('{date}','{news_text_all}')")
+                    cur.execute("INSERT INTO {tn} (Date, Text) VALUES(?, ?)".format(tn='eve_online'),
+                                (date, news_text_all))
                     conn.commit()
             else:
                 news_data_list_eve_online.append(news_text_all)
-                cur.execute(f"INSERT INTO 'eve_online' VALUES('{date}','{news_text_all}')")
+                cur.execute("INSERT INTO {tn} (Date, Text) VALUES(?, ?)".format(tn='eve_online'), (date, news_text_all))
                 conn.commit()
     return news_data_list_eve_online
