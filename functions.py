@@ -1,11 +1,9 @@
 import os
 from time import sleep
 from games_online.FALL_GUYS import fall_guys
-from games_online.HEARTHSTONE import hearthstone
 from games_online.RAINBOW import rainbow
 from games_online.bdo import bdo_online
 from games_online.crossfire import crossfire
-from games_online.dota2 import dota2
 from games_online.eve_online import eve_online
 from games_online.fortnite import fortnite
 from games_online.leagueoflegends import leagueoflegends
@@ -27,16 +25,14 @@ telebot.logger.setLevel(logging.DEBUG)
 logging.config.dictConfig(log1)
 log = logging.getLogger('fuction')
 
-function_list = [crossfire, eve_online, fortnite, dota2, leagueoflegends, rainbow, hearthstone,
-                 fall_guys, bdo_online, world_of_tanks]
+function_list = [crossfire, eve_online, fortnite, leagueoflegends, rainbow, fall_guys, bdo_online, world_of_tanks]
 
-photo_list = ['/app/img/crossfire.jpg', '/app/img/eve-online.jpg', '/app/img/fortnite.jpg', '/app/img/dota2.jpg',
-              '/app/img/league-of-legends.jpg', '/app/img/rainbow.jpg', '/app/img/hearthstone.jpg',
-              '/app/img/Fallguys.jpg',
+photo_list = ['/app/img/crossfire.jpg', '/app/img/eve-online.jpg', '/app/img/fortnite.jpg',
+              '/app/img/league-of-legends.jpg', '/app/img/rainbow.jpg', '/app/img/Fallguys.jpg',
               '/app/img/bdo_online.jpg', '/app/img/wot.jpg']
 
-function_list_name = ['crossfire', 'eve_online', 'fortnite', 'dota2', 'leagueoflegends', 'rainbow', 'hearthstone',
-                      'fall_guys', 'bdo_online', 'world_of_tanks']
+function_list_name = ['crossfire', 'eve_online', 'fortnite', 'leagueoflegends', 'rainbow', 'fall_guys',
+                      'bdo_online', 'world_of_tanks']
 
 
 def schedule_checker():
@@ -66,8 +62,8 @@ def run():
 def table_clear():
     conn = sqlite3.connect(db)
     cur = conn.cursor()
-    table_list = ['bdo', 'crossfire', 'dota2', 'eve_online', 'fall_guys', 'fortnite', 'hearthstone', 'leagueoflegends',
-                  'rainbow', 'world_of_tanks']
+    table_list = ['bdo', 'crossfire', 'eve_online', 'fall_guys', 'fortnite', 'leagueoflegends', 'rainbow',
+                  'world_of_tanks']
     for table in table_list:
         cur.execute(f"DELETE FROM {table}")
         conn.commit()
